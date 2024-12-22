@@ -37,6 +37,6 @@ pipeline{
                                        reportTitles: '',
                                        useWrapperFileDirectly: true])
                                 }
-                            }
+
     }
 }
