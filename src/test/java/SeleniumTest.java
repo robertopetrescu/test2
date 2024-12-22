@@ -19,6 +19,8 @@ public class SeleniumTest {
 
 
         driver = new ChromeDriver(options);
+        System.out.println(System.getProperty("PROJECT"));
+        System.out.println(System.getenv("PROJECT"));
     }
 
     @Test

@@ -4,28 +4,29 @@ pipeline{
     stages {
 
      stage('Setup parameters') {
-                 steps {
-                     script {
-                         properties([
-                             parameters([
-                                 choice(
-                                     choices: ['TestNg', 'jUnit'],
-                                     name: 'TestNg or Junit'
-                                 )
-                             ])
-                         ])
-                     }
-                 }
+         steps {
+              script {
+                properties([
+                      parameters([
+                           choice(
+                               choices: ['TestNg', 'jUnit'],
+                               name: 'PROJECT',
+                               description: 'TestNg or jUnit'
+                          )
+                       ])
+                   ])
+                }
              }
+         }
 
     stage('Getting the project from GIT') {
-               steps {
-                  echo 'Pulling..';
-                   git branch: 'master',
+           steps {
+              echo 'Pulling..';
+                 git branch: 'master',
                    url: 'https://github.com/robertopetrescu/test2.git';
-               }
            }
-        stage("build"){
+    }
+    stage("build"){
             steps{
                 echo 'Building the application'
 
@@ -55,6 +56,8 @@ pipeline{
                 }
             } */
         }
+
+        def PROJECT = ${params.PROJECT}
 
     }
 }
