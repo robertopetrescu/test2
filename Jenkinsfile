@@ -1,9 +1,16 @@
 pipeline{
     agent any
-
+    parameters([
+                           choice(
+                               choices: ['TestNg', 'jUnit'],
+                               name: 'PROJECT',
+                               description: 'TestNg or jUnit',
+                              // def PROJECT = params.PROJECT
+                          )
+                       ])
     stages {
 
-     stage('Setup parameters') {
+     /* stage('Setup parameters') {
          steps {
               script {
                 properties([
@@ -18,7 +25,7 @@ pipeline{
                    ])
                 }
              }
-         }
+         } */
 
     stage('Getting the project from GIT') {
            steps {
