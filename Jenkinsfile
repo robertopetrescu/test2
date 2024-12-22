@@ -11,7 +11,8 @@ pipeline{
                            choice(
                                choices: ['TestNg', 'jUnit'],
                                name: 'PROJECT',
-                               description: 'TestNg or jUnit'
+                               description: 'TestNg or jUnit',
+                               def PROJECT = params.PROJECT
                           )
                        ])
                    ])
@@ -57,7 +58,7 @@ pipeline{
             } */
         }
 
-        def PROJECT = ${params.PROJECT}
+
 
     }
 }
