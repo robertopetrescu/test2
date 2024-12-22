@@ -22,7 +22,7 @@ pipeline{
                         echo 'Testing the application';
                         bat "mvn -D clean test"
                     }
-                }
+
 
             post {
                 // If Maven was able to run the tests, even if some of the test
@@ -39,6 +39,7 @@ pipeline{
                        useWrapperFileDirectly: true])
                 }
             }
+        }
 
     }
 }
