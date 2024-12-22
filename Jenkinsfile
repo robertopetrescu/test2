@@ -5,12 +5,14 @@ pipeline{
         stage("build"){
             steps{
                 echo 'Building the application'
+
             }
         }
 
         stage("test"){
                     steps{
                         echo 'Testing the application'
+                        mvn clean test
                     }
                 }
     }
