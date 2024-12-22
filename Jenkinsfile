@@ -3,6 +3,21 @@ pipeline{
 
     stages {
 
+     stage('Setup parameters') {
+                 steps {
+                     script {
+                         properties([
+                             parameters([
+                                 choice(
+                                     choices: ['TestNg', 'jUnit'],
+                                     name: 'TestNg or Junit'
+                                 )
+                             ])
+                         ])
+                     }
+                 }
+             }
+
     stage('Getting the project from GIT') {
                steps {
                   echo 'Pulling..';
@@ -24,7 +39,7 @@ pipeline{
                     }
 
 
-            post {
+            /* post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
@@ -38,7 +53,7 @@ pipeline{
                        reportTitles: '',
                        useWrapperFileDirectly: true])
                 }
-            }
+            } */
         }
 
     }
