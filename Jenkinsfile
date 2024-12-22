@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-             choice choices: ['Tesnt', 'Junitd', description: 'sda',name: 'PROJECT']
+             choice choices: ['Tesnt', 'Junitd'], description: 'sda',name: 'PROJECT'
                   }
     stages {
 
