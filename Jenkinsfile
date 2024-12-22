@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-             choice choices: ['TestNg', 'jUnit'], description: 'Run using TestNg or jUnit',name: 'PROJECT',
+             choice choices: ['TestNg', 'jUnit'], description: 'Run using TestNg or jUnit',name: 'PROJECT';
              booleanParam(
                    defaultValue: true,
                    description: 'Run parallel',
