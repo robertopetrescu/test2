@@ -1,13 +1,8 @@
 pipeline{
     agent any
-    parameters([
-                           choice(
-                               choices: ['TestNg', 'jUnit'],
-                               name: 'PROJECT',
-                               description: 'TestNg or jUnit',
-                              // def PROJECT = params.PROJECT
-                          )
-                       ])
+    parameters{
+             choice choices: ['Tesnt', 'Junitd', description: 'sda',name: 'PROJECT']
+                  }
     stages {
 
      /* stage('Setup parameters') {
