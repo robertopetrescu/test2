@@ -12,7 +12,7 @@ pipeline{
                                choices: ['TestNg', 'jUnit'],
                                name: 'PROJECT',
                                description: 'TestNg or jUnit',
-                               def PROJECT = params.PROJECT
+                              // def PROJECT = params.PROJECT
                           )
                        ])
                    ])
