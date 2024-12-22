@@ -20,7 +20,7 @@ pipeline{
         stage("Testing the application"){
                     steps{
                         echo 'Testing the application';
-                        sh 'mvn clean test'
+                        bat "mvn -D clean test"
                     }
                 }
     }
