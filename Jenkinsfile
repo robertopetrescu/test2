@@ -1,26 +1,15 @@
 pipeline{
     agent any
     parameters{
-             choice choices: ['Tesnt', 'Junitd'], description: 'sda',name: 'PROJECT'
+             choice choices: ['TestNg', 'jUnit'], description: 'Run using TestNg or jUnit',name: 'PROJECT',
+             booleanParam(
+                   defaultValue: true,
+                   description: 'Run parallel',
+                   name: 'RUN_PARALLEL'
+                 )
                   }
     stages {
 
-     /* stage('Setup parameters') {
-         steps {
-              script {
-                properties([
-                      parameters([
-                           choice(
-                               choices: ['TestNg', 'jUnit'],
-                               name: 'PROJECT',
-                               description: 'TestNg or jUnit',
-                              // def PROJECT = params.PROJECT
-                          )
-                       ])
-                   ])
-                }
-             }
-         } */
 
     stage('Getting the project from GIT') {
            steps {
