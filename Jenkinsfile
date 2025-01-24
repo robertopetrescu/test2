@@ -1,7 +1,7 @@
 pipeline    {
     agent any
     parameters  {
-             choice choices: ['TestNg', 'jUnit'], description: 'Run using TestNg or jUnit',NAME: 'PROJECT'
+             choice choices: ['TestNg', 'jUnit'], description: 'Run using TestNg or jUnit',name: 'PROJECT'
              booleanParam(
                    defaultValue: true,
                    description: 'Run parallel',
@@ -27,11 +27,11 @@ pipeline    {
     stage("Testing the application") {
         steps {
             script {
-                if (env.NAME == 'TestNg') {
+                if (env.PROJECT == 'TestNg') {
                     echo 'Testing the application using TestNg'
                     bat "mvn -D clean test"
                 }
-                if (env.NAME == 'jUnit') {
+                if (env.PROJECT == 'jUnit') {
                     echo 'Testing the application using jUnit'
                     bat "mvn -D clean test"
                 }
