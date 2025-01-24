@@ -29,7 +29,7 @@ pipeline    {
             script {
                 if (env.PROJECT == 'TestNg') {
                     echo 'Testing the application using TestNg'
-                    bat "mvn -D clean test"
+                    bat "java org.testng.TestNG testng.xml"
                 }
                 if (env.PROJECT == 'jUnit') {
                     echo 'Testing the application using jUnit'
