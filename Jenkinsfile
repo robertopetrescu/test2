@@ -26,10 +26,24 @@ pipeline{
         }
 
         stage("Testing the application"){
-                    steps{
+
+         when{ expression {env.name == 'TestNg'}}
+                  steps('Execute'){
+                    echo 'Testing the application using TestNg';
+                    bat "mvn -D clean test"
+                    }
+                }
+
+           when{ expression {env.name == 'jUnit'}}
+                    steps('Execute'){
+                    echo 'Testing the application using jUnit';
+                      bat "mvn -D clean test"
+                      }
+                  }
+                   /*  steps{
                         echo 'Testing the application';
                         bat "mvn -D clean test"
-                    }
+                    } */
 
 
             /* post {

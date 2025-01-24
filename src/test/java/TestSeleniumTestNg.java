@@ -31,6 +31,17 @@ public class TestSeleniumTestNg {
         System.out.println("Testng Page title is: " + title);
     }
 
+    @Test
+    public void testGoogleSearch2() {
+        // Navigate to Google
+        driver.get("https://www.google.com");
+
+
+        // Verify the title
+        String title = driver.getTitle();
+        System.out.println("Testng Page title is2: " + title);
+    }
+
     @AfterClass
     public void teardown() {
         // Close the browser
