@@ -1,25 +1,24 @@
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 
-public class SeleniumTest {
+public class TestSeleniumJunit {
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeEach
     public void setup() {
-        // Set the path to the WebDriver executable (Change the path as necessary)
-      ///  System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
 
         // Create ChromeOptions to enable headless mode
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Enable headless mode
+     //   options.addArguments("--headless"); // Enable headless mode
 
 
         driver = new ChromeDriver(options);
-        System.out.println(System.getenv("PROJECT"));
+        //System.out.println(System.getenv("PROJECT"));
     }
 
     @Test
@@ -30,10 +29,10 @@ public class SeleniumTest {
 
         // Verify the title
         String title = driver.getTitle();
-        System.out.println("Page title is: " + title);
+        System.out.println("Junit Page title is: " + title);
     }
 
-    @AfterClass
+    @AfterEach
     public void teardown() {
         // Close the browser
         if (driver != null) {
