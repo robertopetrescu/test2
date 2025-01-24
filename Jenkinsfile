@@ -1,7 +1,7 @@
 pipeline    {
     agent any
     parameters  {
-             choice choices: ['TestNg', 'jUnit'], description: 'Run using TestNg or jUnit',name: 'PROJECT';
+             choice choices: ['TestNg', 'jUnit'], description: 'Run using TestNg or jUnit',name: 'PROJECT'
              booleanParam(
                    defaultValue: true,
                    description: 'Run parallel',
@@ -12,9 +12,9 @@ pipeline    {
     stages {
         stage('Getting the project from GIT') {
             steps {
-              echo 'Pulling..';
+              echo 'Pulling..'
                  git branch: 'master',
-                   url: 'https://github.com/robertopetrescu/test2.git';
+                   url: 'https://github.com/robertopetrescu/test2.git'
            }
     }
 
@@ -24,23 +24,18 @@ pipeline    {
         }
     }
 
-    stage("Testing the application"){
-        when{
-            expression {env.name == 'TestNg'}
-        }
-        steps('Execute'){
-            echo 'Testing the application using TestNg';
-            bat "mvn -D clean test"
-        }
-
-        when{
-            expression
-                    {
-                        env.name == 'jUnit'}
-        }
-        steps('Execute'){
-            echo 'Testing the application using jUnit';
-            bat "mvn -D clean test"
+    stage("Testing the application") {
+        steps {
+            script {
+                if (env.name == 'TestNg') {
+                    echo 'Testing the application using TestNg'
+                    bat "mvn -D clean test"
+                }
+                if (env.name == 'jUnit') {
+                    echo 'Testing the application using jUnit'
+                    bat "mvn -D clean test"
+                }
+            }
         }
     }
                    /*  steps{
