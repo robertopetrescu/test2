@@ -13,7 +13,7 @@ public class TestSeleniumTestNg {
 
         // Create ChromeOptions to enable headless mode
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless"); // Enable headless mode
+        options.addArguments("--headless"); // Enable headless mode
 
 
         driver = new ChromeDriver(options);
