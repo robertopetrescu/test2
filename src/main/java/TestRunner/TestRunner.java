@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(features="src/test/resources/TestGoogle.feature",
         glue = {"steps"},
-        plugin= {"pretty", "html:target/cucumber-reports" },monochrome=true)
+        plugin= {"pretty", "html:target/cucumber-reports.html" },monochrome=true)
 public class TestRunner extends AbstractTestNGCucumberTests{
     @Override
     @DataProvider(parallel = true)

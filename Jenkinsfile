@@ -38,6 +38,10 @@ pipeline    {
             }
         }
     }
+
+        stage("Generating report"){
+            cucumber buildStatus: 'UNCHANGED', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '/target/cucumber-reports.html', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+        }
                    /*  steps{
                         echo 'Testing the application';
                         bat "mvn -D clean test"
