@@ -28,14 +28,14 @@ public class BeforeAfter {
         //System.out.println(System.getenv("PROJECT"));
     }
 
-    @After(order=0)
+    @After(order=1)
     public void takeScreenshot(Scenario scenario){
         byte[] screenshot = ((TakesScreenshot)driver.get()).getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot, "image/png", scenario.getName());
     }
 
-    @After(order=1)
-    public void teardown() {
+    @After(order=0)
+    public void tearDown() {
         // Close the browser
         if (driver != null) {
             driver.get().quit();
