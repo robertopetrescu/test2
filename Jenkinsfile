@@ -29,11 +29,11 @@ pipeline    {
             script {
                 if (env.PROJECT == 'TestNg') {
                     echo 'Testing the application using TestNg'
-                    bat "mvn clean test -Dtest=TestSeleniumTestNg"
+                    bat "mvn test"
                 }
                 if (env.PROJECT == 'jUnit') {
-                    echo 'Testing the application using jUnit'
-                    bat "mvn clean test -Dtest=TestSeleniumJunit"
+                  //  echo 'Testing the application using jUnit'
+                  //  bat "mvn clean test -Dtest=TestSeleniumJunit"
                 }
             }
         }
