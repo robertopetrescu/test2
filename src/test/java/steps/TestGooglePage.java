@@ -23,4 +23,6 @@ public class TestGooglePage {
         String title = driver.get().getTitle();
         System.out.println("Testng Page title is2: " + title);
     }
+
+
 }
