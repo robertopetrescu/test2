@@ -2,9 +2,9 @@ Feature: Is it Friday yet?
   Everybody wants to know when it's Friday
 
   @tag
-  Scenario: Sunday isn't Friday1
+  Scenario: Check title first
     Given today is Sunday
 
     @tag
-  Scenario: Sunday isn't Friday2
+  Scenario: Check title second
     Given today is Sunday part two
