@@ -30,10 +30,10 @@ public class BeforeAfter {
 
     @After
     public void takeScreenshot(Scenario scenario){
-        File file = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);
-        String screenshotBase64 = ((TakesScreenshot)driver.get()).getScreenshotAs(OutputType.BASE64);
-        scenario.attach(screenshotBase64, "image/png","image");
+        byte[] screenshot = ((TakesScreenshot)driver.get()).getScreenshotAs(OutputType.BYTES);
+        scenario.attach(screenshot, "image/png", scenario.getName());
     }
+
     @After
     public void teardown() {
         // Close the browser
